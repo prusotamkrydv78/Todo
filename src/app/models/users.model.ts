@@ -17,11 +17,3 @@ interface localUser {
     }
   ];
 }
-interface adminUser {
-  id: number;
-  email: string;
-  username: string;
-  password: string;
-  userType: string;
-  userList: string[];
-}

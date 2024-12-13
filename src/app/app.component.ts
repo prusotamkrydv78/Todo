@@ -15,15 +15,6 @@ import { SignInUpComponent } from './pages/sign-in-up/sign-in-up.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'first_angular';
-  http = inject(HttpClient)
-constructor(){
-  this.getUsers()
-}
-getUsers(){
-  this.http.get('http://localhost:3000/users').subscribe((data:any[]) => {
-    console.log(data);
-  });
-}  
+  title = 'first_angular'; 
 
 }
