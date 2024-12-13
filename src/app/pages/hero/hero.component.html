@@ -1,0 +1,68 @@
+<div
+  class="relative h-screen bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col justify-center items-center"
+>
+  <h1 class="text-5xl md:text-7xl font-extrabold text-center">
+    Simplify Your Day with <br />
+    <span class="text-yellow-300">TodoApp</span>
+  </h1>
+  <p class="mt-4 text-lg md:text-xl text-center max-w-3xl">
+    Effortlessly manage your tasks, prioritize your goals, and focus on what
+    truly matters.
+  </p>
+  <div class="mt-8 flex space-x-4">
+    <button
+      class="bg-gradient-to-r from-yellow-300 to-yellow-500 text-blue-900 font-bold px-6 py-3 cursor-pointer rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition transform duration-300"
+      (click)="showDialog = true"
+    >
+      Add Your Tasks
+    </button>
+  </div>
+
+  <!-- Custom Dialog -->
+  <div
+    *ngIf="showDialog"
+    class="fixed inset-0 bg-black/50 flex justify-center items-center z-50"
+  >
+    <div
+      class="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md space-y-4"
+    >
+      <h2 class="text-xl font-bold text-gray-800 text-center">
+        Add a New Task
+      </h2>
+      <input
+        type="text"
+        placeholder="Enter your task"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        [(ngModel)]="taskData.title"
+      />
+      <input 
+        type="text"
+        placeholder="Enter your task"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        [(ngModel)]="taskData.description"
+      />
+      <div class="flex justify-end space-x-4">
+        <button
+          class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition"
+          (click)="showDialog = false"
+        >
+          Cancel
+        </button>
+        <button
+          class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          (click)="addTask()"
+        >
+          Add Task
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Floating Elements -->
+  <div
+    class="absolute top-20 left-16 bg-yellow-400/70 w-16 h-16 rounded-full animate-bounce"
+  ></div>
+  <div
+    class="absolute bottom-20 right-20 bg-blue-400/70 w-24 h-24 rounded-full animate-pulse"
+  ></div>
+</div>
