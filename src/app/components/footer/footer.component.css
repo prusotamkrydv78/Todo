@@ -1,0 +1,33 @@
+footer {
+    background-color: #1a202c;
+    color: #cbd5e0;
+    padding: 1.5rem 0;
+  }
+  
+  footer .container {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  footer .mt-2 {
+    margin-top: 0.5rem;
+  }
+  
+  footer .space-x-4 > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+  
+  footer a {
+    color: #cbd5e0;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: #ffffff;
+  }
+  

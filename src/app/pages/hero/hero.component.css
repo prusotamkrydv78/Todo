@@ -1,0 +1,171 @@
+/* Container Styles */
+.hero-container {
+    position: relative;
+    height: 100vh; /* Blue to purple */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Heading Styles */
+  .hero-heading {
+    font-size: 3rem; /* Default for smaller screens */
+    font-weight: 800;
+    text-align: center;
+  }
+  
+  .hero-heading span {
+    color: #facc15; /* Yellow */
+  }
+  
+  @media (min-width: 768px) {
+    .hero-heading {
+      font-size: 4.5rem; /* Larger screens */
+    }
+  }
+  
+  /* Subheading Styles */
+  .hero-subheading {
+    margin-top: 1rem;
+    font-size: 1.125rem; /* Default for smaller screens */
+    text-align: center;
+    max-width: 48rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-subheading {
+      font-size: 1.25rem; /* Larger screens */
+    }
+  }
+  
+  /* Button Styles */
+  .hero-button {
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #facc15, #f59e0b); /* Yellow gradient */
+    color: #1e3a8a; /* Dark blue */
+    font-weight: bold;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hero-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Dialog Styles */
+  .dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  
+  .dialog-content {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 28rem;
+  }
+  
+  .dialog-heading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #374151;
+    text-align: center;
+  }
+  
+  .dialog-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db; /* Gray */
+    border-radius: 0.5rem;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .dialog-input:focus {
+    box-shadow: 0 0 0 2px #2563eb; /* Blue */
+  }
+  
+  /* Dialog Buttons */
+  .dialog-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dialog-button.cancel {
+    background: #e5e7eb; /* Gray */
+  }
+  
+  .dialog-button.cancel:hover {
+    background: #d1d5db;
+  }
+  
+  .dialog-button.add {
+    background: #2563eb; /* Blue */
+    color: #fff;
+  }
+  
+  .dialog-button.add:hover {
+    background: #1d4ed8;
+  }
+  
+  /* Decorative Floating Elements */
+  .floating-circle {
+    position: absolute;
+    border-radius: 9999px;
+  }
+  
+  .floating-yellow {
+    top: 5rem;
+    left: 4rem;
+    background: rgba(250, 204, 21, 0.7);
+    width: 4rem;
+    height: 4rem;
+    animation: bounce 2s infinite;
+  }
+  
+  .floating-blue {
+    bottom: 5rem;
+    right: 5rem;
+    background: rgba(59, 130, 246, 0.7);
+    width: 6rem;
+    height: 6rem;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10%);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

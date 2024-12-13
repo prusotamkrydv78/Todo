@@ -1,125 +1,37 @@
-<header class="relative">
-  <!-- Navbar -->
-  <div
-    class="absolute top-0 w-full z-50 bg-gradient-to-b from-black/60 to-transparent text-white"
-  >
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<header class="header-container">
+  <div class="navbar">
+    <div class="navbar-content">
       <!-- Logo -->
-      <a routerLink="/" class="text-3xl font-extrabold flex items-center space-x-2 text-gray-800 group no-underline">
-        <!-- Text Logo with Animations -->
-        <span class="transition-all duration-300 ease-in-out group-hover:text-yellow-500">Todo</span>
-        <span class="text-yellow-400 transition-all duration-300 ease-in-out group-hover:text-yellow-300">App</span>
+      <a routerLink="/" class="logo">
+        <span>Todo</span>
+        <span>App</span>
       </a>
-      
+
       <!-- Navigation Links -->
-      <nav class="hidden md:flex space-x-12 text-lg font-semibold uppercase tracking-wide *:no-underline ">
-        <!-- Home Link -->
-        <a
-          routerLink="/"
-          class="relative group text-gray-700   transition duration-300 ease-in-out"
-        >
-          Home
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[3px] bg-yellow-500 transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-      
-        <!-- Tasks Link -->
-        <a
-          routerLink="/tasks"
-          class="relative group text-gray-700   transition duration-300 ease-in-out"
-        >
-          Tasks
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[3px] bg-yellow-500 transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-      
-        <!-- Features Link -->
-        <a
-          routerLink="/features"
-          class="relative group text-gray-700   transition duration-300 ease-in-out"
-        >
-          Features
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[3px] bg-yellow-500 transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
-      
-        <!-- Contact Link -->
-        <a
-          routerLink="/contact"
-          class="relative group text-gray-700   transition duration-300 ease-in-out"
-        >
-          Contact
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[3px] bg-yellow-500 transition-all duration-300 group-hover:w-full"
-          ></span>
-        </a>
+      <nav class="nav-links">
+        <a routerLink="/" class="nav-link">Home</a>
+        <a routerLink="/tasks" class="nav-link">Tasks</a>
+        <a routerLink="/features" class="nav-link">Features</a>
+        <a routerLink="/contact" class="nav-link">Contact</a>
       </nav>
-      
 
       <!-- Action Buttons -->
-      <div class="flex items-center space-x-4">
-        <button
-  class="hidden md:block cursor-pointer bg-white text-blue-900 font-semibold px-5 py-3 rounded-full shadow-md hover:translate-y-1 hover:scale-110 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
->
-  Get Started
-</button>
-
-      
-      
-        <!-- User Menu -->
-        <div class="relative">
-          <button
-            class=" items-center space-x-3  brdenone   cursor-pointer bg-white text-blue-900 font-semibold px-5 py-2 rounded-full shadow-md hover:translate-y-1 hover:scale-110 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 flex"
-            (click)="toggleDropdown()"
-          >
-            <span class="hidden md:inline text-indigo-500 font-semibold">John</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-indigo-500 transform transition duration-300"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
+      <div class="action-buttons">
+        <button class="get-started-btn">Get Started</button>
+        <div class="user-menu">
+          <button class="user-btn" (click)="toggleDropdown()">
+            <span>John</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
-          </button><div
-          *ngIf="isDropdownOpen"
-          class="absolute right-2 mt-2 w-64 bg-white border rounded-lg shadow-lg transform transition-all duration-300 ease-in-out overflow-hidden z-50 *:no-underline"
-        >
-          <!-- Profile Menu -->
-          <a
-            routerLink="/profile"
-            class="block px-5 py-3 text-left text-gray-700 hover:bg-indigo-100 hover:text-indigo-700 transition duration-300 ease-in-out"
-          >
-            Profile
-          </a>
-          <!-- Settings Menu -->
-          <a
-            routerLink="/settings"
-            class="block px-5 py-3 text-left text-gray-700 hover:bg-indigo-100 hover:text-indigo-700 transition duration-300 ease-in-out"
-          >
-            Settings
-          </a>
-          <!-- Logout Menu -->
-          <a
-            routerLink="/logout"
-            class="block px-5 py-3 text-left text-red-600 hover:bg-red-100 hover:text-red-700 transition duration-300 ease-in-out"
-          >
-            Logout
-          </a>
+          </button>
+          <div *ngIf="isDropdownOpen" class="dropdown">
+            <a routerLink="/profile" class="dropdown-link">Profile</a>
+            <a routerLink="/settings" class="dropdown-link">Settings</a>
+            <a routerLink="/logout" class="dropdown-link logout">Logout</a>
+          </div>
         </div>
-        
-        </div>
-        
       </div>
     </div>
   </div>
-
-  <!-- Hero Section -->
- 
 </header>

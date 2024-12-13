@@ -34,21 +34,41 @@ export class HeroComponent {
   };
   constructor(private http: HttpClient) {}
   route = inject(Router);
+  // addTask() {
+  //   if (this.taskData.title.trim()) {
+  //     console.log('New Task:', this.taskData);
+  //     this.http
+  //       .post('https://api.freeapi.app/api/v1/todos/', this.taskData)
+  //       .subscribe((rss) => {
+  //         console.log(rss);
+  //         if (rss['success']) {
+  //           console.log('Task added successfully');
+  //           this.route.navigate(['/tasks']); // Redirect to tasks page after task is added successfully
+  //         } else {
+  //           console.log('Failed to add task');
+  //         }
+  //       });
+
+  //     this.taskData = {
+  //       title: '',
+  //       description: '',
+  //     }; // Reset the input field
+  //     this.showDialog = false; // Close the dialog
+  //   } else {
+  //     alert('Task cannot be empty!');
+  //   }
+  // }
   addTask() {
     if (this.taskData.title.trim()) {
       console.log('New Task:', this.taskData);
       this.http
-        .post('https://api.freeapi.app/api/v1/todos/', this.taskData)
+        .post('http://localhost:3000/profiles', this.taskData)
         .subscribe((rss) => {
           console.log(rss);
-          if (rss['success']) {
-            console.log('Task added successfully');
-            this.route.navigate(['/tasks']); // Redirect to tasks page after task is added successfully
-          } else {
-            console.log('Failed to add task');
-          }
-        });
+           
+        })
 
+        
       this.taskData = {
         title: '',
         description: '',
