@@ -16,11 +16,11 @@
       </nav>
 
       <!-- Action Buttons -->
-      <div class="action-buttons">
+      <div class="action-buttons" *ngIf="loginUserService.loginUser.username">
         <button class="get-started-btn">Get Started</button>
-        <div class="user-menu">
+        <!-- <div class="user-menu">
           <button class="user-btn" (click)="toggleDropdown()">
-            <span>John</span>
+            <span>{{loginUserService.loginUser.username}}</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="icon-chevron-down">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -30,7 +30,34 @@
             <a routerLink="/settings" class="dropdown-link">Settings</a>
             <a routerLink="/logout" class="dropdown-link logout">Logout</a>
           </div>
-        </div>
+        </div> -->. <p-menu #menu [model]="items" [popup]="true" />
+        <p-button (click)="menu.toggle($event)">
+          <span>
+            {{ loginUserService.loginUser.username }}
+          </span>
+        </p-button>
+      </div>
+
+      <div
+        style="display: flex; gap: 5px"
+        *ngIf="!loginUserService.loginUser.username"
+      >
+        <button
+          class="btn-login"
+          (click)="
+          onLoginOrRegister('register')
+          "
+        >
+          Login
+        </button>
+        <button
+          class="btn-register"
+          (click)="
+          onLoginOrRegister('login')
+          "
+        >
+          Register
+        </button>
       </div>
     </div>
   </div>

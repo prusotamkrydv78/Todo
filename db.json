@@ -7,6 +7,14 @@
       "password": "123",
       "userType": "user",
       "userList": []
+    },
+    {
+      "id": "5db2",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "prusotam_ydvv",
+      "password": "asdf",
+      "userType": "admin",
+      "userList": []
     }
   ]
 }

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToastService } from '../../services/toast.service';
+import { Router } from '@angular/router';
+import { LoginUserService } from '../../services/login-user.service';
 
 interface registerUser {
   email: string;
@@ -29,7 +31,8 @@ export class SignInUpComponent {
   registerUser: registerUser;
   loginUser: loginUser;
   AllUsers: any = [];
-
+  router = inject(Router);
+  loginUserService = inject(LoginUserService);
   async ngOnInit() {
     this.clearRegisterFields();
     await this.getAllUsers();
@@ -89,7 +92,7 @@ export class SignInUpComponent {
               'user register successfully'
             );
             this.clearRegisterFields();
-            this.isRegisterMode = false;
+            this.loginUserService.isRegisterMode = false;
             this.getAllUsers();
           });
       } else {
@@ -100,7 +103,8 @@ export class SignInUpComponent {
       this.toastService.showToast('error', 'fill the above fields to regiter');
     }
   }
-  onLogin() {
+  onLogin(event: Event) {
+    event.preventDefault();
     let isValidUser = false;
     //checking the user is regiter or not
     this.AllUsers.forEach((user: registerUser) => {
@@ -116,10 +120,13 @@ export class SignInUpComponent {
       // saving logined user data into local storage
       if (isValidUser) {
         localStorage.setItem('loginUser', JSON.stringify(this.loginUser));
+        this.loginUserService.loginUser = JSON.parse(
+          localStorage.getItem('loginUser')
+        );
+        this.router.navigate(['home']);
         this.toastService.showToast('success', 'Login successfully');
         this.clearLoginFields();
       } else {
-        
         this.toastService.showToast('error', 'Invalid user');
       }
     } else {

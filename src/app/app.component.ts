@@ -11,9 +11,10 @@ import { SignInUpComponent } from './pages/sign-in-up/sign-in-up.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ToastService } from './services/toast.service';
+import { LayoutComponent } from "./layout/layout.component";
 @Component({
   selector: 'app-root',
-  imports: [ButtonModule, SignInUpComponent,ToastModule],
+  imports: [ButtonModule, LayoutComponent, ToastModule, LayoutComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

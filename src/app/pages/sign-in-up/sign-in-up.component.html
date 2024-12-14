@@ -6,9 +6,9 @@
     height: 100vh;
   "
 >
-  <div class="container" [class.register-active]="isRegisterMode">
+  <div class="container" [class.register-active]="loginUserService.isRegisterMode">
     <!-- Login Form -->
-    <div class="form-box login" *ngIf="!isRegisterMode">
+    <div class="form-box login" *ngIf="!loginUserService.isRegisterMode">
       <form>
         <h1>Login</h1>
         <div class="input-box">
@@ -34,13 +34,13 @@
         <div class="forgot-link">
           <a href="#">Forgot Password?</a>
         </div>
-        <button type="submit" class="btn" (click)="onLogin()">Login</button>
+        <button class="btn" (click)="onLogin($event)">Login</button>
         <p>or login with social platforms</p>
       </form>
     </div>
 
     <!-- Register Form -->
-    <div class="form-box register" *ngIf="isRegisterMode">
+    <div class="form-box register" *ngIf="loginUserService.isRegisterMode">
       <form>
         <h1 style="margin-bottom: 15px">Registration</h1>
         <div class="input-box">
@@ -96,22 +96,22 @@
 
     <!-- Toggle Box -->
     <div class="toggle-box">
-      <div class="toggle-panel toggle-left" *ngIf="!isRegisterMode">
+      <div class="toggle-panel toggle-left" *ngIf="!loginUserService.isRegisterMode">
         <h1>Hello, Welcome!</h1>
         <p>Don't have an account?</p>
         <button
           class="btn register-btn"
-          (click)="isRegisterMode = !isRegisterMode"
+          (click)="loginUserService.isRegisterMode = !loginUserService.isRegisterMode"
         >
           Register
         </button>
       </div>
-      <div class="toggle-panel toggle-right" *ngIf="isRegisterMode">
+      <div class="toggle-panel toggle-right" *ngIf="loginUserService.isRegisterMode">
         <h1>Welcome Back!</h1>
         <p>Already have an account?</p>
         <button
           class="btn login-btn"
-          (click)="isRegisterMode = !isRegisterMode"
+          (click)="loginUserService.isRegisterMode = !loginUserService.isRegisterMode"
         >
           Login
         </button>
