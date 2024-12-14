@@ -8,13 +8,17 @@ import { HeroComponent } from './pages/hero/hero.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient } from '@angular/common/http';
 import { SignInUpComponent } from './pages/sign-in-up/sign-in-up.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { ToastService } from './services/toast.service';
 @Component({
   selector: 'app-root',
-  imports: [ButtonModule, HeaderComponent, FooterComponent, RouterOutlet,SignInUpComponent],
+  imports: [ButtonModule, SignInUpComponent,ToastModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'first_angular'; 
-
+  toast = inject(ToastService)
+ 
 }

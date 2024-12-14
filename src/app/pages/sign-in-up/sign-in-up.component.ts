@@ -34,20 +34,18 @@ export class SignInUpComponent {
     userType: '',
     userList: [],
   };
-  AllUsers = [];
+  AllUsers: any = [];
 
-  ngOnInit() {
-    this.http.get('http://localhost:3000/users').subscribe((res: any) => {
-      this.AllUsers = res;
-      console.log(res);
-    });
+  async ngOnInit() {
+    await this.getAllUsers();
+    console.log(this.AllUsers);
   }
   //class ngOnInit
 
   onRegister(event: Event) {
     event.preventDefault();
     let isUserRegistered = false;
-    
+
     this.AllUsers.forEach((user) => {
       if (user.username === this.adminUser.username) {
         isUserRegistered = true;
@@ -57,12 +55,16 @@ export class SignInUpComponent {
       this.http
         .post('http://localhost:3000/users', this.adminUser)
         .subscribe((data: any) => {
-          // console.log(data);
+          console.log(data);
+          this.getAllUsers();
         });
     } else {
       alert('Username already exists');
       return;
     }
-    console.log(this.adminUser);
+  }
+  async getAllUsers() {
+    let res = await this.http.get('http://localhost:3000/users').toPromise();
+    this.AllUsers = res;
   }
 }
