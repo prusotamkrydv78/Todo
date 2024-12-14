@@ -9,13 +9,11 @@ import { MessageService } from 'primeng/api';
 })
 export class ToastService {
   constructor(private messageService: MessageService) {}
-  show(type:string, message:string) {
+  showToast(type:string, message:string) {
     this.messageService.add({
       severity: type, 
       detail:message,
       life: 3000,
-    });
-    console.log('hellow');
-    
+    }); 
   }
 }

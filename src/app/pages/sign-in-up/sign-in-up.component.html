@@ -8,27 +8,39 @@
 >
   <div class="container" [class.register-active]="isRegisterMode">
     <!-- Login Form -->
-    <div class="form-box login" *ngIf="isRegisterMode">
+    <div class="form-box login" *ngIf="!isRegisterMode">
       <form>
         <h1>Login</h1>
         <div class="input-box">
-          <input type="text" placeholder="Username" required />
+          <input
+            type="text"
+            placeholder="Username"
+            required
+            name="username"
+            [(ngModel)]="loginUser.username"
+          />
           <i class="bx bxs-user"></i>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Password" required />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            name="password"
+            [(ngModel)]="loginUser.password"
+          />
           <i class="bx bxs-lock-alt"></i>
         </div>
         <div class="forgot-link">
           <a href="#">Forgot Password?</a>
         </div>
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn" (click)="onLogin()">Login</button>
         <p>or login with social platforms</p>
       </form>
     </div>
 
     <!-- Register Form -->
-    <div class="form-box register" *ngIf="!isRegisterMode">
+    <div class="form-box register" *ngIf="isRegisterMode">
       <form>
         <h1 style="margin-bottom: 15px">Registration</h1>
         <div class="input-box">
@@ -37,7 +49,7 @@
             placeholder="Username"
             name="username"
             required
-            [(ngModel)]="adminUser.username"
+            [(ngModel)]="registerUser.username"
           />
           <i class="bx bxs-user"></i>
         </div>
@@ -47,7 +59,7 @@
             placeholder="Email"
             name="email"
             required
-            [(ngModel)]="adminUser.email"
+            [(ngModel)]="registerUser.email"
           />
           <i class="bx bxs-envelope"></i>
         </div>
@@ -57,16 +69,16 @@
             placeholder="Password"
             name="password"
             required
-            [(ngModel)]="adminUser.password"
+            [(ngModel)]="registerUser.password"
           />
           <i class="bx bxs-lock-alt"></i>
         </div>
         <!-- <div class="input-box">
-        <input type="text" placeholder="Admin Username" required (ngModel)="adminUser.username"/>
+        <input type="text" placeholder="Admin Username" required (ngModel)="registerUser.username"/>
         <i class="bx bxs-lock-alt"></i>
       </div> -->
         <div class="input-box">
-          <select name="userType" id="" [(ngModel)]="adminUser.userType">
+          <select name="userType" id="" [(ngModel)]="registerUser.userType">
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
@@ -87,12 +99,22 @@
       <div class="toggle-panel toggle-left" *ngIf="!isRegisterMode">
         <h1>Hello, Welcome!</h1>
         <p>Don't have an account?</p>
-        <button class="btn register-btn" (click)="register()">Register</button>
+        <button
+          class="btn register-btn"
+          (click)="isRegisterMode = !isRegisterMode"
+        >
+          Register
+        </button>
       </div>
       <div class="toggle-panel toggle-right" *ngIf="isRegisterMode">
         <h1>Welcome Back!</h1>
         <p>Already have an account?</p>
-        <button class="btn login-btn" (click)="login()">Login</button>
+        <button
+          class="btn login-btn"
+          (click)="isRegisterMode = !isRegisterMode"
+        >
+          Login
+        </button>
       </div>
     </div>
   </div>
