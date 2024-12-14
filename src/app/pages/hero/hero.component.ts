@@ -9,7 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
-
+import { LoginUserService } from '../../services/login-user.service';
+interface taskData {
+  title: string;
+  description: string;
+  userId: string;
+}
 @Component({
   selector: 'app-hero',
   imports: [
@@ -28,12 +33,21 @@ export class HeroComponent {
   isDialogVisible = false;
 
   showDialog = false;
-  taskData = {
-    title: '',
-    description: '',
-  };
+  taskData: taskData;
   constructor(private http: HttpClient) {}
   route = inject(Router);
+  loginUserService = inject(LoginUserService);
+
+  loginedUser: any;
+  ngOnInit() {
+    this.loginedUser = this.loginUserService.loginUser;
+    this.taskData = {
+      title: '',
+      description: '',
+      userId: this.loginedUser.id,
+    };
+    console.log(this.loginedUser);
+  }
   // addTask() {
   //   if (this.taskData.title.trim()) {
   //     console.log('New Task:', this.taskData);
@@ -59,19 +73,20 @@ export class HeroComponent {
   //   }
   // }
   addTask() {
+    let taskData = { ...this.taskData, useid: this.loginedUser.id };
+
     if (this.taskData.title.trim()) {
       console.log('New Task:', this.taskData);
       this.http
-        .post('http://localhost:3000/profiles', this.taskData)
+        .post('http://localhost:3000/tasks', this.taskData)
         .subscribe((rss) => {
           console.log(rss);
-           
-        })
+        });
 
-        
       this.taskData = {
         title: '',
         description: '',
+        userId: this.loginedUser.id,
       }; // Reset the input field
       this.showDialog = false; // Close the dialog
     } else {

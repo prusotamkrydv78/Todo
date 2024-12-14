@@ -23,25 +23,20 @@
         class="dialog-input"
         [(ngModel)]="taskData.title"
       />
-      <input
-        type="text"
+
+      <textarea
+        name="description"
         placeholder="Enter your task description"
         class="dialog-input"
+        id=""
         [(ngModel)]="taskData.description"
-      />
-      <div class="flex justify-end space-x-4">
-        <button
-          class="dialog-button cancel"
-          (click)="showDialog = false"
-        >
+      >
+      </textarea>
+      <div class="dialog-buttons">
+        <button class="dialog-button cancel" (click)="showDialog = false">
           Cancel
         </button>
-        <button
-          class="dialog-button add"
-          (click)="addTask()"
-        >
-          Add Task
-        </button>
+        <button class="dialog-button add" (click)="addTask()">Add Task</button>
       </div>
     </div>
   </div>
