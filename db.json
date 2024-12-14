@@ -19,22 +19,12 @@
   ],
   "tasks": [
     {
-      "id": "aa41",
-      "title": "asdfasdf",
+      "id": "1b21",
+      "title": "asdfasf",
       "description": "asdfasdf",
-      "userId": "8ce3"
-    },
-    {
-      "id": "4b5a",
-      "title": "adsfasdf",
-      "description": "asdfasdf",
-      "userId": "8ce3"
-    },
-    {
-      "id": "70bd",
-      "title": "dfasdf",
-      "description": "asdfasdfaasdf",
-      "userId": "5db2"
+      "userId": "8ce3",
+      "isCompleted": false,
+      "createdAt": "2024-12-14 18:02:46"
     }
   ]
 }

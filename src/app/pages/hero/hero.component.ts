@@ -10,10 +10,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
 import { LoginUserService } from '../../services/login-user.service';
+import { format } from 'date-fns';
 interface taskData {
   title: string;
   description: string;
   userId: string;
+  isCompleted: boolean;
+  createdAt: any;
 }
 @Component({
   selector: 'app-hero',
@@ -45,36 +48,14 @@ export class HeroComponent {
       title: '',
       description: '',
       userId: this.loginedUser.id,
+
+      isCompleted: false,
+      createdAt: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
     };
     console.log(this.loginedUser);
   }
-  // addTask() {
-  //   if (this.taskData.title.trim()) {
-  //     console.log('New Task:', this.taskData);
-  //     this.http
-  //       .post('https://api.freeapi.app/api/v1/todos/', this.taskData)
-  //       .subscribe((rss) => {
-  //         console.log(rss);
-  //         if (rss['success']) {
-  //           console.log('Task added successfully');
-  //           this.route.navigate(['/tasks']); // Redirect to tasks page after task is added successfully
-  //         } else {
-  //           console.log('Failed to add task');
-  //         }
-  //       });
 
-  //     this.taskData = {
-  //       title: '',
-  //       description: '',
-  //     }; // Reset the input field
-  //     this.showDialog = false; // Close the dialog
-  //   } else {
-  //     alert('Task cannot be empty!');
-  //   }
-  // }
   addTask() {
-    let taskData = { ...this.taskData, useid: this.loginedUser.id };
-
     if (this.taskData.title.trim()) {
       console.log('New Task:', this.taskData);
       this.http
@@ -87,6 +68,9 @@ export class HeroComponent {
         title: '',
         description: '',
         userId: this.loginedUser.id,
+
+        isCompleted: false,
+        createdAt: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
       }; // Reset the input field
       this.showDialog = false; // Close the dialog
     } else {
