@@ -32,9 +32,9 @@
           </div>
         </div> -->. <p-menu #menu [model]="items" [popup]="true" />
         <p-button (click)="menu.toggle($event)">
-          <span>
-            {{ loginUserService.loginUser.username }}
-          </span>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+             <i class="pi pi-user"></i> {{ loginUserService.loginUser.username }} 
+          </div>
         </p-button>
       </div>
 

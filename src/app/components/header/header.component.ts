@@ -21,7 +21,7 @@ export class HeaderComponent {
       items: [
         {
           label: 'Profile',
-          icon: 'pi pi-user',
+          icon: 'pi pi-user-edit',
         },
         {
           label: 'Logout',
@@ -53,7 +53,7 @@ export class HeaderComponent {
     localStorage.removeItem('loginUser');
     this.router.navigate(['/login']);
   }
-  onLoginOrRegister(type: string) { 
+  onLoginOrRegister(type: string) {
     this.router.navigate(['/login']);
     if (type == 'login') {
       this.loginUserService.isRegisterMode = true;
