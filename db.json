@@ -2,25 +2,26 @@
   "users": [
     {
       "id": "8a6c",
-      "email": "prusotamkumaryadav78@gmail.com",
+      "email": "admin@gmail.com",
       "username": "admin",
       "password": "admin",
       "userType": "admin",
-      "userList": ["prusotam_ydv"]
+      "userList": [
+        "prusotam_ydv"
+      ]
     },
     {
-      "id": "e7c6",
+      "id": "b3b7",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "prusotam_ydv",
-      "password": "user",
-      "userType": "user",
-      "adminUsername": "admin"
+      "username": "user2",
+      "password": "$2a$10$MmEC6eYbBXCnIhRfySdNcu9Rt/QyU/7bAV8hmrr8pFyRUCTNeEexu",
+      "userType": "newUser"
     },
     {
-      "id": "ea47",
+      "id": "692a",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "asdf",
-      "password": "$2a$10$u6INx5f/1eyKG7cEsTvfCuOBsEWWDPzDgVVzdk9r81LqmF6RA5XlO",
+      "username": "user3",
+      "password": "$2a$10$VtDbhQ3GsWtiScpYzL08zOiiymBY9qr8BxeHS691ZW0fRAHapgbFG",
       "userType": "newUser"
     }
   ],

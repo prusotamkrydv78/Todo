@@ -38,13 +38,24 @@ export class SignInUpComponent {
   async ngOnInit() {
     this.clearRegisterFields();
     await this.getAllUsers();
-    console.log(this.AllUsers); 
+    console.log(this.AllUsers);
   }
-  //class ngOnInit
+  //hasing the password
   async hashPassword(password: string): Promise<string> {
-  return await bcrypt.hash(password, 10);
+    return await bcrypt.hash(password, 10);
+  }
 
-    
+  // unhasing the password
+  async handleComparePassword(password: string) {
+    try {
+      // Compare the password with the hashed one
+      const isMatch = await bcrypt.compare(this.loginUser.password, password);
+
+      return isMatch;
+    } catch (error) {
+      console.error('Error comparing passwords', error);
+      return false;
+    }
   }
   //clearing the fields
   clearRegisterFields() {
@@ -88,9 +99,14 @@ export class SignInUpComponent {
 
       //registring the user if username is not exist
       if (!isUserRegistered) {
-        let hashedPassword = await this.hashPassword(this.registerUser.password)
-        if(hashedPassword){
-          this.registerUser={...this.registerUser,password:hashedPassword}
+        let hashedPassword = await this.hashPassword(
+          this.registerUser.password
+        );
+        if (hashedPassword) {
+          this.registerUser = {
+            ...this.registerUser,
+            password: hashedPassword,
+          };
         }
         if (this.registerUser.userType == 'admin') {
           this.registerUser = { ...this.registerUser, userList: [] };
@@ -153,36 +169,42 @@ export class SignInUpComponent {
       this.toastService.showToast('error', 'fill the above fields to regiter');
     }
   }
-  onLogin(event: Event) {
+  async onLogin(event: Event) {
     event.preventDefault();
     let isValidUser = false;
-    let loginedUser: {};
-    //checking the user is regiter or not
-    this.AllUsers.forEach((user: registerUser) => {
-      if (
-        user.username == this.loginUser.username &&
-        user.password == this.loginUser.password
-      ) {
-        isValidUser = true;
-        loginedUser = user;
+    let loggedInUser: registerUser | null = null;
+
+    // Loop through the user list using async/await properly
+    for (const user of this.AllUsers) {
+      if (user.username === this.loginUser.username) {
+        const isMatch = await this.handleComparePassword(user.password);
+
+        if (isMatch) {
+          isValidUser = true;
+          loggedInUser = user; // Found the user
+          console.log('User matched');
+          break; // Exit the loop once we find a match
+        }
       }
-    });
-    // checking the fileds are filled or not
-    if (this.loginUser.username || this.loginUser.password) {
-      // saving logined user data into local storage
+    }
+
+    // Validate fields and handle logic after checking the user
+    if (this.loginUser.username && this.loginUser.password) {
       if (isValidUser) {
-        localStorage.setItem('loginUser', JSON.stringify(loginedUser));
+        // Save logged-in user data into local storage
+        localStorage.setItem('loginUser', JSON.stringify(loggedInUser));
         this.loginUserService.loginUser = JSON.parse(
-          localStorage.getItem('loginUser')
+          localStorage.getItem('loginUser')!
         );
+
         this.router.navigate(['home']);
-        this.toastService.showToast('success', 'Login successfully');
+        this.toastService.showToast('success', 'Login successful');
         this.clearLoginFields();
       } else {
         this.toastService.showToast('error', 'Invalid user');
       }
     } else {
-      this.toastService.showToast('error', 'Fill the above fields');
+      this.toastService.showToast('error', 'Please fill in both fields');
     }
   }
 }
