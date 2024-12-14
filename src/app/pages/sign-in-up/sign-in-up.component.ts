@@ -106,6 +106,7 @@ export class SignInUpComponent {
   onLogin(event: Event) {
     event.preventDefault();
     let isValidUser = false;
+    let loginedUser: {}
     //checking the user is regiter or not
     this.AllUsers.forEach((user: registerUser) => {
       if (
@@ -113,13 +114,15 @@ export class SignInUpComponent {
         user.password == this.loginUser.password
       ) {
         isValidUser = true;
+        loginedUser = user
+        
       }
     });
     // checking the fileds are filled or not
     if (this.loginUser.username || this.loginUser.password) {
       // saving logined user data into local storage
       if (isValidUser) {
-        localStorage.setItem('loginUser', JSON.stringify(this.loginUser));
+        localStorage.setItem('loginUser', JSON.stringify(loginedUser));
         this.loginUserService.loginUser = JSON.parse(
           localStorage.getItem('loginUser')
         );
