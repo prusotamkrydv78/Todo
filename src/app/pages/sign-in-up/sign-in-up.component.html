@@ -6,7 +6,10 @@
     height: 100vh;
   "
 >
-  <div class="container" [class.register-active]="loginUserService.isRegisterMode">
+  <div
+    class="container"
+    [class.register-active]="loginUserService.isRegisterMode"
+  >
     <!-- Login Form -->
     <div class="form-box login" *ngIf="!loginUserService.isRegisterMode">
       <form>
@@ -78,10 +81,23 @@
         <i class="bx bxs-lock-alt"></i>
       </div> -->
         <div class="input-box">
-          <select name="userType" id="" [(ngModel)]="registerUser.userType">
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
+          <select name="userType" [(ngModel)]="registerUser.userType">
+            <option value="">Select user type</option>
+
+            <option value="newUser">Have't an admin</option>
+            <option value="user">Have an admin</option>
+            <option value="admin">I am admin</option>
           </select>
+        </div>
+        <div class="input-box" *ngIf="registerUser.userType == 'user'">
+          <input
+            type="text"
+            placeholder="Give your admin username"
+            name="adminUsername"
+            required
+            [(ngModel)]="registerUser.adminUsername"
+          />
+          <i class="bx bxs-lock-alt"></i>
         </div>
         <button class="btn" (click)="onRegister($event)">Register</button>
         <p>or register with social platforms</p>
@@ -96,22 +112,32 @@
 
     <!-- Toggle Box -->
     <div class="toggle-box">
-      <div class="toggle-panel toggle-left" *ngIf="!loginUserService.isRegisterMode">
+      <div
+        class="toggle-panel toggle-left"
+        *ngIf="!loginUserService.isRegisterMode"
+      >
         <h1>Hello, Welcome!</h1>
         <p>Don't have an account?</p>
         <button
           class="btn register-btn"
-          (click)="loginUserService.isRegisterMode = !loginUserService.isRegisterMode"
+          (click)="
+            loginUserService.isRegisterMode = !loginUserService.isRegisterMode
+          "
         >
           Register
         </button>
       </div>
-      <div class="toggle-panel toggle-right" *ngIf="loginUserService.isRegisterMode">
+      <div
+        class="toggle-panel toggle-right"
+        *ngIf="loginUserService.isRegisterMode"
+      >
         <h1>Welcome Back!</h1>
         <p>Already have an account?</p>
         <button
           class="btn login-btn"
-          (click)="loginUserService.isRegisterMode = !loginUserService.isRegisterMode"
+          (click)="
+            loginUserService.isRegisterMode = !loginUserService.isRegisterMode
+          "
         >
           Login
         </button>

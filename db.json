@@ -1,30 +1,28 @@
 {
   "users": [
     {
-      "id": "8ce3",
+      "id": "8a6c",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "prusotam_ydv",
-      "password": "123",
-      "userType": "user",
-      "userList": []
+      "username": "admin",
+      "password": "admin",
+      "userType": "admin",
+      "userList": ["prusotam_ydv"]
     },
     {
-      "id": "5db2",
+      "id": "e7c6",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "prusotam_ydvv",
-      "password": "asdf",
-      "userType": "admin",
-      "userList": []
+      "username": "prusotam_ydv",
+      "password": "user",
+      "userType": "user",
+      "adminUsername": "admin"
+    },
+    {
+      "id": "ea47",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "asdf",
+      "password": "$2a$10$u6INx5f/1eyKG7cEsTvfCuOBsEWWDPzDgVVzdk9r81LqmF6RA5XlO",
+      "userType": "newUser"
     }
   ],
-  "tasks": [
-    {
-      "id": "1b21",
-      "title": "asdfasf",
-      "description": "asdfasdf",
-      "userId": "8ce3",
-      "isCompleted": false,
-      "createdAt": "2024-12-14 18:02:46"
-    }
-  ]
+  "tasks": []
 }

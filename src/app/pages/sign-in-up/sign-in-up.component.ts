@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { ToastService } from '../../services/toast.service';
 import { Router } from '@angular/router';
 import { LoginUserService } from '../../services/login-user.service';
+import * as bcrypt from 'bcryptjs';
 
 interface registerUser {
   email: string;
   username: string;
-  password: string;
+  password: any;
   userType: string;
-  userList: string[];
+  userList?: string[];
+  adminUsername?: string;
 }
 interface loginUser {
   username: string;
@@ -36,10 +38,14 @@ export class SignInUpComponent {
   async ngOnInit() {
     this.clearRegisterFields();
     await this.getAllUsers();
-    console.log(this.AllUsers);
+    console.log(this.AllUsers); 
   }
   //class ngOnInit
+  async hashPassword(password: string): Promise<string> {
+  return await bcrypt.hash(password, 10);
 
+    
+  }
   //clearing the fields
   clearRegisterFields() {
     this.registerUser = {
@@ -47,7 +53,6 @@ export class SignInUpComponent {
       username: '',
       password: '',
       userType: '',
-      userList: [],
     };
   }
   clearLoginFields() {
@@ -64,7 +69,7 @@ export class SignInUpComponent {
     this.AllUsers = res;
   }
 
-  onRegister(event: Event) {
+  async onRegister(event: Event) {
     event.preventDefault();
     let isUserRegistered = false;
     // checking the form is empty or not
@@ -83,6 +88,51 @@ export class SignInUpComponent {
 
       //registring the user if username is not exist
       if (!isUserRegistered) {
+        let hashedPassword = await this.hashPassword(this.registerUser.password)
+        if(hashedPassword){
+          this.registerUser={...this.registerUser,password:hashedPassword}
+        }
+        if (this.registerUser.userType == 'admin') {
+          this.registerUser = { ...this.registerUser, userList: [] };
+          console.log(this.registerUser);
+        } else if (this.registerUser.userType == 'user') {
+          this.registerUser = {
+            ...this.registerUser,
+            adminUsername: this.registerUser.adminUsername,
+          };
+
+          const adminUser = this.AllUsers.find(
+            (user: any) => user.username === this.registerUser.adminUsername
+          );
+
+          if (adminUser) {
+            // Ensure userList exists
+            const updatedUser = {
+              ...adminUser,
+              userList: [
+                ...(adminUser.userList || []),
+                this.registerUser.username,
+              ],
+            };
+            this.http
+              .patch(`http://localhost:3000/users/${adminUser.id}`, updatedUser)
+              .subscribe({
+                next: (res) => {
+                  console.log('Patch successful:', res);
+                },
+                error: (err) => {
+                  console.error('Error during PATCH:', err);
+                },
+              });
+          } else {
+            console.error('Admin user not found.');
+          }
+          // console.log(this.registerUser);
+        } else {
+          this.registerUser;
+          console.log(this.registerUser);
+        }
+
         this.http
           .post('http://localhost:3000/users', this.registerUser)
           .subscribe((data: any) => {
@@ -106,7 +156,7 @@ export class SignInUpComponent {
   onLogin(event: Event) {
     event.preventDefault();
     let isValidUser = false;
-    let loginedUser: {}
+    let loginedUser: {};
     //checking the user is regiter or not
     this.AllUsers.forEach((user: registerUser) => {
       if (
@@ -114,8 +164,7 @@ export class SignInUpComponent {
         user.password == this.loginUser.password
       ) {
         isValidUser = true;
-        loginedUser = user
-        
+        loginedUser = user;
       }
     });
     // checking the fileds are filled or not
