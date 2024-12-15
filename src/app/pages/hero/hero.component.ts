@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
 import { LoginUserService } from '../../services/login-user.service';
 import { format } from 'date-fns';
+import { ToastService } from '../../services/toast.service';
 interface taskData {
   title: string;
   description: string;
@@ -40,7 +41,7 @@ export class HeroComponent {
   constructor(private http: HttpClient) {}
   route = inject(Router);
   loginUserService = inject(LoginUserService);
-
+  toastService = inject(ToastService);
   loginedUser: any;
   ngOnInit() {
     this.loginedUser = this.loginUserService.loginUser;
@@ -78,9 +79,10 @@ export class HeroComponent {
         isCompleted: false,
         createdAt: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
       }; // Reset the input field
+      this.toastService.showToast('success', 'Task added successfully');
       this.showDialog = false; // Close the dialog
     } else {
-      alert('Task cannot be empty!');
+      this.toastService.showToast('error', 'Task cannot be empty');
     }
   }
 }

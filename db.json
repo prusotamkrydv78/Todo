@@ -6,7 +6,10 @@
       "username": "prusotam_ydv",
       "password": "$2a$10$i7VJqzzDxZZD0ttl9Dru0OXmMkreQj2P4cr6U4B2gUcg3fReKID1G",
       "userType": "newUser",
-      "tasks": ["fa69", "1562"]
+      "tasks": [
+        "fa69",
+        "1562"
+      ]
     },
     {
       "id": "53a2",
@@ -14,10 +17,38 @@
       "username": "user2",
       "password": "$2a$10$DXIqUhdlRE684b.FVk.QgOZxLDiFL8viGEpnv2TOQvPdrvpbzSfQK",
       "userType": "newUser",
-      "tasks": ["da05", "9ede"]
+      "tasks": [
+        "da05",
+        "9ede"
+      ]
+    },
+    {
+      "id": "1c8e",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "user3",
+      "password": "$2a$10$G09iedWcYaJAQgShFm79heC6FuA2YDHHkbB2uVQCx0w/PlWmvVY1m",
+      "userType": "user",
+      "adminUsername": "admin",
+      "tasks": [
+        "7104",
+        "7945",
+        "91b7",
+        "54ab"
+      ]
     }
   ],
-  "admins": [],
+  "admins": [
+    {
+      "id": "ef20",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "admin",
+      "password": "$2a$10$DF7cZUHS0/RSJI8luQh8U.IlB/o/HIghRXcAtnp6amgycpBfd.nJ2",
+      "userType": "admin",
+      "userList": [
+        "user3"
+      ]
+    }
+  ],
   "tasks": [
     {
       "id": "fa69",
@@ -50,6 +81,38 @@
       "userId": "53a2",
       "isCompleted": false,
       "createdAt": "2024-12-15 10:21:32"
+    },
+    {
+      "id": "7104",
+      "title": "asdfasdf",
+      "description": "dafafaf",
+      "userId": "1c8e",
+      "isCompleted": false,
+      "createdAt": "2024-12-15 10:30:38"
+    },
+    {
+      "id": "7945",
+      "title": "asdf",
+      "description": "asdfaf",
+      "userId": "1c8e",
+      "isCompleted": false,
+      "createdAt": "2024-12-15 12:20:29"
+    },
+    {
+      "id": "91b7",
+      "title": "asdf",
+      "description": "asdfasf",
+      "userId": "1c8e",
+      "isCompleted": false,
+      "createdAt": "2024-12-15 12:22:43"
+    },
+    {
+      "id": "54ab",
+      "title": "asdf",
+      "description": "adaf",
+      "userId": "1c8e",
+      "isCompleted": false,
+      "createdAt": "2024-12-15 12:22:52"
     }
   ]
 }
