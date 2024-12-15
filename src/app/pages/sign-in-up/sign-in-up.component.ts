@@ -14,6 +14,7 @@ interface registerUser {
   userType: string;
   userList?: string[];
   adminUsername?: string;
+  tasks?:[]
 }
 interface loginUser {
   username: string;
@@ -137,6 +138,9 @@ export class SignInUpComponent {
             } else {
               console.error('Admin user not found');
             }
+            this.registerUser = { ...this.registerUser, tasks: [] };
+          } else {
+            this.registerUser = { ...this.registerUser, tasks: [] };
           }
 
           // Set hashed password to the user object
