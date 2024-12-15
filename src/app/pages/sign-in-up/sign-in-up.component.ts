@@ -79,96 +79,76 @@ export class SignInUpComponent {
     let res = await this.http.get('http://localhost:3000/users').toPromise();
     this.AllUsers = res;
   }
-
   async onRegister(event: Event) {
     event.preventDefault();
     let isUserRegistered = false;
-    // checking the form is empty or not
+  
+    // Ensure fields are filled
     if (
       this.registerUser.username ||
       this.registerUser.email ||
       this.registerUser.password ||
       this.registerUser.userType
     ) {
-      // matching the already register username
-      this.AllUsers.forEach((user) => {
+      // Check if username already exists
+      for (const user of this.AllUsers) {
         if (user.username === this.registerUser.username) {
           isUserRegistered = true;
+          break;
         }
-      });
-
-      //registring the user if username is not exist
+      }
+  
       if (!isUserRegistered) {
-        let hashedPassword = await this.hashPassword(
-          this.registerUser.password
-        );
-        if (hashedPassword) {
+        try {
+          // Hash the password
+          const hashedPassword = await this.hashPassword(this.registerUser.password);
+  
+          if (this.registerUser.userType === 'admin') {
+            this.registerUser = { ...this.registerUser, userList: [] };
+            console.log('Admin User:', this.registerUser);
+          } else if (this.registerUser.userType === 'user') {
+            // Handle user registration as a user type
+            const adminUser = this.AllUsers.find(
+              (user: any) => user.username === this.registerUser.adminUsername
+            );
+  
+            if (adminUser) {
+              const updatedUser = {
+                ...adminUser,
+                userList: [...(adminUser.userList || []), this.registerUser.username],
+              };
+  
+              await this.http.patch(`http://localhost:3000/users/${adminUser.id}`, updatedUser).toPromise();
+              console.log('Admin user updated successfully');
+            } else {
+              console.error('Admin user not found');
+            }
+          }
+  
+          // Set hashed password to the user object
           this.registerUser = {
             ...this.registerUser,
             password: hashedPassword,
           };
+  
+          // Submit the registration data to server
+          await this.http.post('http://localhost:3000/users', this.registerUser).toPromise();
+          this.toastService.showToast('success', 'User registered successfully');
+          this.clearRegisterFields();
+          this.loginUserService.isRegisterMode = false;
+          this.getAllUsers();
+        } catch (error) {
+          console.error('Error during registration:', error);
+          this.toastService.showToast('error', 'Error during user registration');
         }
-        if (this.registerUser.userType == 'admin') {
-          this.registerUser = { ...this.registerUser, userList: [] };
-          console.log(this.registerUser);
-        } else if (this.registerUser.userType == 'user') {
-          this.registerUser = {
-            ...this.registerUser,
-            adminUsername: this.registerUser.adminUsername,
-          };
-
-          const adminUser = this.AllUsers.find(
-            (user: any) => user.username === this.registerUser.adminUsername
-          );
-
-          if (adminUser) {
-            // Ensure userList exists
-            const updatedUser = {
-              ...adminUser,
-              userList: [
-                ...(adminUser.userList || []),
-                this.registerUser.username,
-              ],
-            };
-            this.http
-              .patch(`http://localhost:3000/users/${adminUser.id}`, updatedUser)
-              .subscribe({
-                next: (res) => {
-                  console.log('Patch successful:', res);
-                },
-                error: (err) => {
-                  console.error('Error during PATCH:', err);
-                },
-              });
-          } else {
-            console.error('Admin user not found.');
-          }
-          // console.log(this.registerUser);
-        } else {
-          this.registerUser;
-          console.log(this.registerUser);
-        }
-
-        this.http
-          .post('http://localhost:3000/users', this.registerUser)
-          .subscribe((data: any) => {
-            console.log(data);
-            this.toastService.showToast(
-              'success',
-              'user register successfully'
-            );
-            this.clearRegisterFields();
-            this.loginUserService.isRegisterMode = false;
-            this.getAllUsers();
-          });
       } else {
-        this.toastService.showToast('error', 'Username already register');
-        return;
+        this.toastService.showToast('error', 'Username already registered');
       }
     } else {
-      this.toastService.showToast('error', 'fill the above fields to regiter');
+      this.toastService.showToast('error', 'Please fill in the above fields to register');
     }
   }
+  
   async onLogin(event: Event) {
     event.preventDefault();
     let isValidUser = false;

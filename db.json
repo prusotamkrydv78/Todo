@@ -1,29 +1,46 @@
 {
   "users": [
     {
-      "id": "8a6c",
-      "email": "admin@gmail.com",
+      "id": "8b9d",
+      "email": "prusotamkumaryadav78@gmail.com",
       "username": "admin",
-      "password": "admin",
+      "password": "$2a$10$UAF1pneJir3rDNXXq4qZ8OhPp4czgDfSmRV7d.QoH6XQu3cWEZ2y.",
       "userType": "admin",
       "userList": [
-        "prusotam_ydv"
+        "user1",
+        "prusotam_ydvvv"
       ]
     },
     {
-      "id": "b3b7",
+      "id": "8013",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "user2",
-      "password": "$2a$10$MmEC6eYbBXCnIhRfySdNcu9Rt/QyU/7bAV8hmrr8pFyRUCTNeEexu",
+      "username": "user1",
+      "password": "$2a$10$/DjfNm4m1fznIh5aGIpsOe1wMWhFk24rasbcrEfCb3AWGGZXpAe/S",
+      "userType": "user",
+      "adminUsername": "admin"
+    },
+    {
+      "id": "25d3",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "prusotam_ydv",
+      "password": "password",
       "userType": "newUser"
     },
     {
-      "id": "692a",
+      "id": "0aef",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "user3",
-      "password": "$2a$10$VtDbhQ3GsWtiScpYzL08zOiiymBY9qr8BxeHS691ZW0fRAHapgbFG",
+      "username": "prusotam_ydvv",
+      "password": "$2a$10$eZp7K9qstWwQUCeO/N57vOR8rpLJaLJrXPdxVnxc.ThPO7okQYVym",
       "userType": "newUser"
-    }
+    },
+    {
+      "id": "2a0b",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "prusotam_ydvvv",
+      "password": "$2a$10$OX6wLLzDJUiHuPEVTCUJNODWJQ.fn5lBS5Ggi2Eu8CoKWGNKX73Be",
+      "userType": "user",
+      "adminUsername": "admin"
+    } 
   ],
   "tasks": []
 }
