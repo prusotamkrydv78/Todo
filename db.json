@@ -1,46 +1,42 @@
 {
   "users": [
     {
-      "id": "8b9d",
+      "id": "5ee0",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "prusotam_ydv",
+      "password": "$2a$10$lzlkkn.c.Jpo2hxIl0VEceZt3bCHVRdTtTfPWhnv1HoFmk1NA.1aK",
+      "userType": "user",
+      "adminUsername": "admin"
+    },
+    {
+      "id": "aa46",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "user2",
+      "password": "$2a$10$JJ8sy9.fNlvjyK12LR9p.OfwG9l0N98mdd6bri2NSUzhiK5PsN84G",
+      "userType": "user",
+      "adminUsername": "admin"
+    }
+  ],
+  "admins": [
+    {
+      "id": "cbf1",
       "email": "prusotamkumaryadav78@gmail.com",
       "username": "admin",
-      "password": "$2a$10$UAF1pneJir3rDNXXq4qZ8OhPp4czgDfSmRV7d.QoH6XQu3cWEZ2y.",
+      "password": "$2a$10$N7NAft0WeCImdFXSDM75R.JE8Kitp4665YmpC4gU6q2GORR/XEReO",
       "userType": "admin",
       "userList": [
-        "user1",
-        "prusotam_ydvvv"
+        "prusotam_ydv",
+        "user2"
       ]
     },
     {
-      "id": "8013",
-      "email": "prusotamkumaryadav78@gmail.com",
-      "username": "user1",
-      "password": "$2a$10$/DjfNm4m1fznIh5aGIpsOe1wMWhFk24rasbcrEfCb3AWGGZXpAe/S",
-      "userType": "user",
-      "adminUsername": "admin"
-    },
-    {
-      "id": "25d3",
-      "email": "prusotamkumaryadav78@gmail.com",
-      "username": "prusotam_ydv",
-      "password": "password",
-      "userType": "newUser"
-    },
-    {
-      "id": "0aef",
+      "id": "ad14",
       "email": "prusotamkumaryadav78@gmail.com",
       "username": "prusotam_ydvv",
-      "password": "$2a$10$eZp7K9qstWwQUCeO/N57vOR8rpLJaLJrXPdxVnxc.ThPO7okQYVym",
-      "userType": "newUser"
-    },
-    {
-      "id": "2a0b",
-      "email": "prusotamkumaryadav78@gmail.com",
-      "username": "prusotam_ydvvv",
-      "password": "$2a$10$OX6wLLzDJUiHuPEVTCUJNODWJQ.fn5lBS5Ggi2Eu8CoKWGNKX73Be",
-      "userType": "user",
-      "adminUsername": "admin"
-    } 
+      "password": "$2a$10$R060Y/y7vAXCSCf7v7yq1eO1IFFepHxY5Fnw9UP4K01qDD8n0cUOu",
+      "userType": "admin",
+      "userList": []
+    }
   ],
   "tasks": []
 }

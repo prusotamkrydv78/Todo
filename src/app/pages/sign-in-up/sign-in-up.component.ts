@@ -82,7 +82,7 @@ export class SignInUpComponent {
   async onRegister(event: Event) {
     event.preventDefault();
     let isUserRegistered = false;
-  
+
     // Ensure fields are filled
     if (
       this.registerUser.username ||
@@ -97,58 +97,90 @@ export class SignInUpComponent {
           break;
         }
       }
-  
+
       if (!isUserRegistered) {
         try {
           // Hash the password
-          const hashedPassword = await this.hashPassword(this.registerUser.password);
-  
+          const hashedPassword = await this.hashPassword(
+            this.registerUser.password
+          );
+
           if (this.registerUser.userType === 'admin') {
             this.registerUser = { ...this.registerUser, userList: [] };
             console.log('Admin User:', this.registerUser);
           } else if (this.registerUser.userType === 'user') {
             // Handle user registration as a user type
-            const adminUser = this.AllUsers.find(
+            const adminData: any = await this.http
+              .get('http://localhost:3000/admins')
+              .toPromise();
+
+            const adminUser = adminData.find(
               (user: any) => user.username === this.registerUser.adminUsername
             );
-  
+
             if (adminUser) {
               const updatedUser = {
                 ...adminUser,
-                userList: [...(adminUser.userList || []), this.registerUser.username],
+                userList: [
+                  ...(adminUser.userList || []),
+                  this.registerUser.username,
+                ],
               };
-  
-              await this.http.patch(`http://localhost:3000/users/${adminUser.id}`, updatedUser).toPromise();
+
+              await this.http
+                .patch(
+                  `http://localhost:3000/admins/${adminUser.id}`,
+                  updatedUser
+                )
+                .toPromise();
               console.log('Admin user updated successfully');
             } else {
               console.error('Admin user not found');
             }
           }
-  
+
           // Set hashed password to the user object
           this.registerUser = {
             ...this.registerUser,
             password: hashedPassword,
           };
-  
+
           // Submit the registration data to server
-          await this.http.post('http://localhost:3000/users', this.registerUser).toPromise();
-          this.toastService.showToast('success', 'User registered successfully');
+          if (this.registerUser.userType == 'admin') {
+            await this.http
+              .post('http://localhost:3000/admins', this.registerUser)
+              .toPromise();
+          } else {
+            await this.http
+              .post('http://localhost:3000/users', this.registerUser)
+              .toPromise();
+          }
+
+          this.toastService.showToast(
+            'success',
+            'User registered successfully'
+          );
           this.clearRegisterFields();
           this.loginUserService.isRegisterMode = false;
           this.getAllUsers();
         } catch (error) {
           console.error('Error during registration:', error);
-          this.toastService.showToast('error', 'Error during user registration');
+          this.toastService.showToast(
+            'error',
+            'Error during user registration'
+          );
         }
       } else {
         this.toastService.showToast('error', 'Username already registered');
       }
     } else {
-      this.toastService.showToast('error', 'Please fill in the above fields to register');
+      this.toastService.showToast(
+        'error',
+        'Please fill in the above fields to register'
+      );
     }
   }
-  
+
   async onLogin(event: Event) {
     event.preventDefault();
     let isValidUser = false;
