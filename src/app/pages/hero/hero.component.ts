@@ -48,21 +48,27 @@ export class HeroComponent {
       title: '',
       description: '',
       userId: this.loginedUser.id,
-
       isCompleted: false,
       createdAt: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
     };
     console.log(this.loginedUser);
   }
 
-  addTask() {
+  async addTask() {
     if (this.taskData.title.trim()) {
-      console.log('New Task:', this.taskData);
-      this.http
+      const res: any = await this.http
         .post('http://localhost:3000/tasks', this.taskData)
-        .subscribe((rss) => {
-          console.log(rss);
-        });
+        .toPromise();
+      if (res) {
+        console.log(res.id);
+        let user: any = await this.http
+          .get(`http://localhost:3000/users/${res.userId}`)
+          .toPromise();
+        const updataedUser = { ...user, tasks: [...user.tasks, res.id] };
+        await this.http
+          .patch(`http://localhost:3000/users/${res.userId}`, updataedUser)
+          .toPromise();
+      }
 
       this.taskData = {
         title: '',

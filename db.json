@@ -1,43 +1,55 @@
 {
   "users": [
     {
-      "id": "1738",
+      "id": "560d",
       "email": "prusotamkumaryadav78@gmail.com",
       "username": "prusotam_ydv",
-      "password": "$2a$10$hD7OkJCLKRPHclSbQGkEtexBdUM3ecoT3sbUyAeNetDGTW46KKpWu",
+      "password": "$2a$10$i7VJqzzDxZZD0ttl9Dru0OXmMkreQj2P4cr6U4B2gUcg3fReKID1G",
       "userType": "newUser",
-      "tasks": []
+      "tasks": ["fa69", "1562"]
     },
     {
-      "id": "d549",
+      "id": "53a2",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "user1",
-      "password": "$2a$10$GxR3sUhx8Jy.PKoe2V8AC.dtOHyFg89VKmZOUq.53lB46SxgzUKB6",
-      "userType": "user",
-      "adminUsername": "admin",
-      "tasks": []
+      "username": "user2",
+      "password": "$2a$10$DXIqUhdlRE684b.FVk.QgOZxLDiFL8viGEpnv2TOQvPdrvpbzSfQK",
+      "userType": "newUser",
+      "tasks": ["da05", "9ede"]
     }
   ],
-  "admins": [
-    {
-      "id": "2a9e",
-      "email": "prusotamkumaryadav78@gmail.com",
-      "username": "admin",
-      "password": "$2a$10$7.0FozWlG0jKfOZFMGQAauyCoYBmQVw3CUu26R7LV8fEbvLuhjeHO",
-      "userType": "admin",
-      "userList": [
-        "user1"
-      ]
-    }
-  ],
+  "admins": [],
   "tasks": [
     {
-      "id": "ae96",
-      "title": "sdfadf",
-      "description": "asdfadsf",
-      "userId": "1738",
+      "id": "fa69",
+      "title": "adf",
+      "description": "adsfaf",
+      "userId": "560d",
       "isCompleted": false,
-      "createdAt": "2024-12-15 09:38:41"
+      "createdAt": "2024-12-15 10:18:18"
+    },
+    {
+      "id": "1562",
+      "title": "asdfasf",
+      "description": "adsfasfd",
+      "userId": "560d",
+      "isCompleted": false,
+      "createdAt": "2024-12-15 10:18:25"
+    },
+    {
+      "id": "da05",
+      "title": "asdfadf",
+      "description": "adfafdafds",
+      "userId": "53a2",
+      "isCompleted": false,
+      "createdAt": "2024-12-15 10:21:26"
+    },
+    {
+      "id": "9ede",
+      "title": "asdfadf",
+      "description": "afasdfaf",
+      "userId": "53a2",
+      "isCompleted": false,
+      "createdAt": "2024-12-15 10:21:32"
     }
   ]
 }
