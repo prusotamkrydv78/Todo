@@ -130,6 +130,15 @@
   .delete-btn:hover {
     text-decoration: underline;
   }
+.action{ 
+  padding: 5px;
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.action .pi-trash{
+  background-color: red;
+}
   
   /* Responsive Design */
   @media (max-width: 768px) {

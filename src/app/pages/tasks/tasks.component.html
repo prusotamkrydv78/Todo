@@ -1,4 +1,4 @@
-<div class="container min-h-[85vh]">
+<div class="container min-h-[85vh]" style="min-height: 100vh">
   <!-- Header Section -->
   <header>
     <h1>My Tasks</h1>
@@ -12,9 +12,9 @@
   </div>
 
   <!-- Task Grid Section -->
-  <div class="d">
+  <div style="display: flex; flex-direction: column">
     <!-- Task 1 -->
-    @for (task of tasksList?.data; track $index) {
+    <!-- @for (task of tasksList?.data; track $index) {
 
     <div class="w-[80%] flex justify-between gap-3">
       <div>
@@ -81,6 +81,35 @@
         </div>
       </div>
     </div>
+    } -->
+    @for (task of tasksList; track $index) {
+
+    <div class="card" style="margin: 10px 0">
+      <p-panel [toggleable]="true" [collapsed]="true" [toggler]="'header'">
+        <ng-template pTemplate="header">
+          <div class="flex items-center gap-2">
+            <span style="font-weight: bold">{{ task.title }}</span>
+          </div>
+        </ng-template>
+
+        <div>
+          <p style="margin: 0">
+            {{ task.description }}
+          </p>
+          <div class="action">
+            <p-button
+              icon="pi pi-trash"
+              [style]="{ color: 'red', fontWeight: 'bold' }"
+              rounded
+              text
+            ></p-button>
+            <p-button icon="pi pi-pencil" rounded text></p-button>
+            <p-checkbox [(ngModel)]="task.isCompleted" [binary]="true" (onChange)="onCompleted(task.id)" />
+          </div>
+        </div>
+      </p-panel>
+    </div>
+
     }
   </div>
 

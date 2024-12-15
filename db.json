@@ -103,7 +103,7 @@
       "title": "asdf",
       "description": "asdfasf",
       "userId": "1c8e",
-      "isCompleted": false,
+      "isCompleted": true,
       "createdAt": "2024-12-15 12:22:43"
     },
     {
@@ -111,7 +111,7 @@
       "title": "asdf",
       "description": "adaf",
       "userId": "1c8e",
-      "isCompleted": false,
+      "isCompleted": true,
       "createdAt": "2024-12-15 12:22:52"
     }
   ]
