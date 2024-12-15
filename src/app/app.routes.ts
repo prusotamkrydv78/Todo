@@ -31,6 +31,11 @@ export const routes: Routes = [
         component: HeroComponent,
         canActivate: [authGuard],
       },
+      {
+        path:'tasks',
+        component:TasksComponent,
+        canActivate:[authGuard]
+      }
     ],
   },
 ];

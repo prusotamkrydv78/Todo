@@ -20,8 +20,11 @@ export class HeaderComponent {
     {
       items: [
         {
-          label: 'Profile',
-          icon: 'pi pi-user-edit',
+          label: 'Tasks',
+          icon: 'pi pi-briefcase',
+          command:()=>{
+            this.router.navigate(['/tasks']);
+          }
         },
         {
           label: 'Logout',
