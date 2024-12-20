@@ -87,13 +87,15 @@ console.log(task);
       });
   }
   onDelete(id: number) {
+    console.log(id);
+    
     this.http
-      .delete(`https://api.freeapi.app/api/v1/todos/${id}`)
+      .delete(`http://localhost:3000/tasks/${id}`)
       .subscribe((res: any) => {
         if (res) {
           console.log(res);
-          this.tasksList.data = this.tasksList.data.filter(
-            (task: any) => task._id != id
+          this.tasksList = this.tasksList.filter(
+            (task: any) => task.id != id
           );
           console.log(this.tasksList);
         }

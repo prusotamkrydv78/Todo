@@ -102,6 +102,7 @@
               [style]="{ color: 'red', fontWeight: 'bold' }"
               rounded
               text
+              (onClick)="onDelete(task.id)"
             ></p-button>
             <p-button icon="pi pi-pencil" rounded text></p-button>
             <p-checkbox

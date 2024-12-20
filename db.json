@@ -8,7 +8,10 @@
       "userType": "newUser",
       "tasks": [
         "7038",
-        "324c"
+        "324c",
+        "ec27",
+        "f410",
+        "8b7f"
       ]
     },
     {
@@ -30,22 +33,5 @@
       "userList": []
     }
   ],
-  "tasks": [
-    {
-      "id": "7038",
-      "title": "asdf",
-      "description": "adfadf",
-      "userId": "befc",
-      "isCompleted": true,
-      "createdAt": "2024-12-20 16:06:22"
-    },
-    {
-      "id": "324c",
-      "title": "fdgasdf",
-      "description": "afafafd",
-      "userId": "befc",
-      "isCompleted": true,
-      "createdAt": "2024-12-20 16:07:17"
-    }
-  ]
+  "tasks": []
 }
