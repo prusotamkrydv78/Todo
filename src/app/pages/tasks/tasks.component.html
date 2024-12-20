@@ -104,7 +104,11 @@
               text
             ></p-button>
             <p-button icon="pi pi-pencil" rounded text></p-button>
-            <p-checkbox [(ngModel)]="task.isCompleted" [binary]="true" (onChange)="onCompleted(task.id)" />
+            <p-checkbox
+              [(ngModel)]="task.isCompleted"
+              [binary]="true"
+              (onChange)="onCompleted(task.id)"
+            />
           </div>
         </div>
       </p-panel>

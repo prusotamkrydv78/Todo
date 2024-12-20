@@ -1,118 +1,51 @@
 {
   "users": [
     {
-      "id": "560d",
+      "id": "befc",
       "email": "prusotamkumaryadav78@gmail.com",
       "username": "prusotam_ydv",
-      "password": "$2a$10$i7VJqzzDxZZD0ttl9Dru0OXmMkreQj2P4cr6U4B2gUcg3fReKID1G",
+      "password": "$2a$10$XEZNiXTKmj.WFTH00mRHd.sOm3dNP8YCn5qYh0ICWED/nrLnIMJNm",
       "userType": "newUser",
       "tasks": [
-        "fa69",
-        "1562"
+        "7038",
+        "324c"
       ]
     },
     {
-      "id": "53a2",
+      "id": "2a6e",
       "email": "prusotamkumaryadav78@gmail.com",
       "username": "user2",
-      "password": "$2a$10$DXIqUhdlRE684b.FVk.QgOZxLDiFL8viGEpnv2TOQvPdrvpbzSfQK",
+      "password": "$2a$10$1dC0jfAZnrN3dgNGzwyUcOXVvX2/iKV4DHcIyKqhfak5ECZP8XHvi",
       "userType": "newUser",
-      "tasks": [
-        "da05",
-        "9ede"
-      ]
-    },
-    {
-      "id": "1c8e",
-      "email": "prusotamkumaryadav78@gmail.com",
-      "username": "user3",
-      "password": "$2a$10$G09iedWcYaJAQgShFm79heC6FuA2YDHHkbB2uVQCx0w/PlWmvVY1m",
-      "userType": "user",
-      "adminUsername": "admin",
-      "tasks": [
-        "7104",
-        "7945",
-        "91b7",
-        "54ab"
-      ]
+      "tasks": []
     }
   ],
   "admins": [
     {
-      "id": "ef20",
+      "id": "a110",
       "email": "prusotamkumaryadav78@gmail.com",
       "username": "admin",
-      "password": "$2a$10$DF7cZUHS0/RSJI8luQh8U.IlB/o/HIghRXcAtnp6amgycpBfd.nJ2",
+      "password": "$2a$10$OzUzSi/D0jpuyK4oeFOf7unnMcWu9RnYggS0W6wwCDxwIAsPPZSjS",
       "userType": "admin",
-      "userList": [
-        "user3"
-      ]
+      "userList": []
     }
   ],
   "tasks": [
     {
-      "id": "fa69",
-      "title": "adf",
-      "description": "adsfaf",
-      "userId": "560d",
-      "isCompleted": false,
-      "createdAt": "2024-12-15 10:18:18"
-    },
-    {
-      "id": "1562",
-      "title": "asdfasf",
-      "description": "adsfasfd",
-      "userId": "560d",
-      "isCompleted": false,
-      "createdAt": "2024-12-15 10:18:25"
-    },
-    {
-      "id": "da05",
-      "title": "asdfadf",
-      "description": "adfafdafds",
-      "userId": "53a2",
-      "isCompleted": false,
-      "createdAt": "2024-12-15 10:21:26"
-    },
-    {
-      "id": "9ede",
-      "title": "asdfadf",
-      "description": "afasdfaf",
-      "userId": "53a2",
-      "isCompleted": false,
-      "createdAt": "2024-12-15 10:21:32"
-    },
-    {
-      "id": "7104",
-      "title": "asdfasdf",
-      "description": "dafafaf",
-      "userId": "1c8e",
-      "isCompleted": false,
-      "createdAt": "2024-12-15 10:30:38"
-    },
-    {
-      "id": "7945",
+      "id": "7038",
       "title": "asdf",
-      "description": "asdfaf",
-      "userId": "1c8e",
-      "isCompleted": false,
-      "createdAt": "2024-12-15 12:20:29"
-    },
-    {
-      "id": "91b7",
-      "title": "asdf",
-      "description": "asdfasf",
-      "userId": "1c8e",
+      "description": "adfadf",
+      "userId": "befc",
       "isCompleted": true,
-      "createdAt": "2024-12-15 12:22:43"
+      "createdAt": "2024-12-20 16:06:22"
     },
     {
-      "id": "54ab",
-      "title": "asdf",
-      "description": "adaf",
-      "userId": "1c8e",
+      "id": "324c",
+      "title": "fdgasdf",
+      "description": "afafafd",
+      "userId": "befc",
       "isCompleted": true,
-      "createdAt": "2024-12-15 12:22:52"
+      "createdAt": "2024-12-20 16:07:17"
     }
   ]
 }

@@ -14,7 +14,7 @@ interface registerUser {
   userType: string;
   userList?: string[];
   adminUsername?: string;
-  tasks?:[]
+  tasks?: [];
 }
 interface loginUser {
   username: string;
@@ -77,8 +77,9 @@ export class SignInUpComponent {
   async getAllUsers() {
     this.clearLoginFields();
     this.clearRegisterFields();
-    let res = await this.http.get('http://localhost:3000/users').toPromise();
-    this.AllUsers = res;
+    let users:any = await this.http.get('http://localhost:3000/users').toPromise();
+    let admins:any = await this.http.get('http://localhost:3000/admins').toPromise();
+    this.AllUsers = [...admins,...users];
   }
   async onRegister(event: Event) {
     event.preventDefault();
