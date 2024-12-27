@@ -25,7 +25,7 @@ export class UserTaskDetailsComponent {
 
     if (!this.user) {
       alert('User not found!');
-      this.router.navigate(['/admin']);
+      // this.router.navigate(['/admin']);
     }
   }
 

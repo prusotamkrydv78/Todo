@@ -105,19 +105,18 @@ console.log(task);
     this.isDialogVisible = true;
 
     this.showDialog = true;
-    let task = this.tasksList.data.filter((task) => {
-      return task._id == id;
+    let task = this.tasksList.filter((task) => {
+      return task.id == id;
     });
-    this.taskData.title = task[0].title;
-    this.taskData.description = task[0].description;
-    console.log(task[0]);
+    this.taskData = {...task[0] };
+    console.log(task);
   }
   onUpdate(id: number) {
     this.isDialogVisible = false;
 
     this.showDialog = false;
     this.http
-      .patch(`https://api.freeapi.app/api/v1/todos/${id}`, this.taskData)
+      .patch(`http://localhost:3000/tasks/${id}`, this.taskData)
       .subscribe((res) => {
         if (res) {
           if (res) {

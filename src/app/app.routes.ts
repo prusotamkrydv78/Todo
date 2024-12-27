@@ -5,8 +5,14 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { UserTaskDetailsComponent } from './admin/user-task-details/user-task-details.component';
 import { SignInUpComponent } from './pages/sign-in-up/sign-in-up.component';
 import { LayoutComponent } from './layout/layout.component';
-import { authGuard } from './Auth/auth.guard'; 
+import { authGuard } from './Auth/auth.guard';
 export const routes: Routes = [
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+    data: { preload: true },
+  },
   {
     path: '',
     redirectTo: 'login',
@@ -31,10 +37,10 @@ export const routes: Routes = [
         canActivate: [authGuard],
       },
       {
-        path:'tasks',
-        component:TasksComponent,
-        canActivate:[authGuard]
-      }
+        path: 'tasks',
+        component: TasksComponent,
+        canActivate: [authGuard],
+      },
     ],
-  }, 
+  },
 ];
