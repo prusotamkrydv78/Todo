@@ -1,48 +1,34 @@
 {
   "users": [
     {
-      "id": "befc",
+      "id": "8463",
       "email": "prusotamkumaryadav78@gmail.com",
       "username": "prusotam_ydv",
-      "password": "$2a$10$XEZNiXTKmj.WFTH00mRHd.sOm3dNP8YCn5qYh0ICWED/nrLnIMJNm",
+      "password": "$2a$10$n8ksyk6uDC89JFEuBLtPeOnGf6gVQEm9c1j0Qb0CJonKsyCQvGLUu",
       "userType": "newUser",
       "tasks": [
-        "7038",
-        "324c",
-        "ec27",
-        "f410",
-        "8b7f",
-        "404f",
-        "84de"
+        "99fb",
+        "9572"
       ]
     },
     {
-      "id": "2a6e",
+      "id": "dd84",
       "email": "prusotamkumaryadav78@gmail.com",
-      "username": "user2",
-      "password": "$2a$10$1dC0jfAZnrN3dgNGzwyUcOXVvX2/iKV4DHcIyKqhfak5ECZP8XHvi",
+      "username": "prusotam_ydv",
+      "password": "$2a$10$HvjREgUv7Yt28x4b82YP..dMJxleMSVVx30CveMP9SZym5U6xiGfO",
       "userType": "newUser",
       "tasks": []
     }
   ],
-  "admins": [
-    {
-      "id": "a110",
-      "email": "prusotamkumaryadav78@gmail.com",
-      "username": "admin",
-      "password": "$2a$10$OzUzSi/D0jpuyK4oeFOf7unnMcWu9RnYggS0W6wwCDxwIAsPPZSjS",
-      "userType": "admin",
-      "userList": []
-    }
-  ],
+  "admins": [],
   "tasks": [
     {
-      "id": "404f",
-      "title": "rewfa",
-      "description": "aadfaf",
-      "userId": "befc",
+      "id": "9572",
+      "title": "asdfaasdf",
+      "description": "asdfasdfasdf",
+      "userId": "8463",
       "isCompleted": true,
-      "createdAt": "2024-12-20 16:17:42"
+      "createdAt": "2025-01-04 14:51:47"
     }
   ]
 }

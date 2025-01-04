@@ -8,7 +8,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { LoginUserService } from '../../services/login-user.service';
-import {  CheckboxModule } from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 interface tasksListSchema {
   data: any;
   message: string;
@@ -74,31 +74,38 @@ export class TasksComponent {
   }
 
   onCompleted(id: number) {
-    let task = this.tasksList.find((task: any) => task.id === id); 
-console.log(task);
+    let task = this.tasksList.find((task: any) => task.id === id);
+    console.log(task);
 
     this.http
-      .patch(`http://localhost:3000/tasks/${id}`,task )
-      .subscribe((res) => { 
-          if (res) {
-            // console.log(res);
-            this.loadAllTasks();
-          } 
+      .patch(`http://localhost:3000/tasks/${id}`, task)
+      .subscribe((res) => {
+        if (res) {
+          // console.log(res);
+          this.loadAllTasks();
+        }
       });
   }
   onDelete(id: number) {
-    console.log(id);
-    
+    let user = this.loginUserService.loginUser;
     this.http
       .delete(`http://localhost:3000/tasks/${id}`)
       .subscribe((res: any) => {
         if (res) {
           console.log(res);
-          this.tasksList = this.tasksList.filter(
-            (task: any) => task.id != id
-          );
-          console.log(this.tasksList);
+          this.tasksList = this.tasksList.filter((task: any) => task.id != id);
         }
+      });
+    console.log(this.tasksList);
+    let updatedTask = user.tasks.filter((item) => item !== id);
+
+    this.http
+      .patch(`http://localhost:3000/users/${user.id}`, {
+        ...user,
+        tasks: updatedTask,
+      })
+      .subscribe((res) => {
+        console.log(res);
       });
   }
   onEdit(id: number) {
@@ -108,7 +115,7 @@ console.log(task);
     let task = this.tasksList.filter((task) => {
       return task.id == id;
     });
-    this.taskData = {...task[0] };
+    this.taskData = { ...task[0] };
     console.log(task);
   }
   onUpdate(id: number) {
