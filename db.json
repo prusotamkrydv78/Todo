@@ -21,7 +21,16 @@
       "tasks": []
     }
   ],
-  "admins": [],
+  "admins": [
+    {
+      "id": "4e08",
+      "email": "prusotamkumaryadav78@gmail.com",
+      "username": "admin",
+      "password": "$2a$10$U9kAlR8lev/YN2kPLciuDeR0uSyOiGEZD.74nPIRWXc3ONB6.BsPe",
+      "userType": "admin",
+      "userList": []
+    }
+  ],
   "tasks": [
     {
       "id": "9572",

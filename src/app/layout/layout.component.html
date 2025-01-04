@@ -1,4 +1,9 @@
+@if (loginedUser.loginUser.userType == "admin") {
 
-<app-header/>
+<app-adminheader />
+}@else {
 
-<router-outlet/> 
+<app-header />
+}
+
+<router-outlet />
