@@ -1,0 +1,68 @@
+<div class="user-detail-container">
+    <h2>User Details</h2>
+  
+    <div class="user-detail">
+      <div class="user-item">
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" [(ngModel)]="user.name" />
+      </div>
+  
+      <div class="user-item">
+        <label for="userEmail">Email:</label>
+        <input type="email" id="userEmail" [(ngModel)]="user.email" />
+      </div>
+  
+      <div class="user-item">
+        <label for="userRole">Role:</label>
+        <select id="userRole" [(ngModel)]="user.role">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+  
+      <div class="user-item">
+        <label for="userStatus">Status:</label>
+        <select id="userStatus" [(ngModel)]="user.status">
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="task-summary">
+      <h3>Task Summary</h3>
+      <div class="task-stats">
+        <p>Total Tasks: {{ tasks.length }}</p>
+        <p>Completed: {{ completedTasksCount }}</p>
+        <p>Pending: {{ tasks.length - completedTasksCount }}</p>
+      </div>
+  
+      <table class="task-table">
+        <thead>
+          <tr>
+            <th>Task Title</th>
+            <th>Status</th>
+            <th>Due Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{ task.title }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.dueDate | date }}</td>
+            <td>
+              <button (click)="viewTask(task.id)">View</button>
+              <button (click)="deleteTask(task.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="user-actions">
+      <button class="save-btn" (click)="saveUser()">Save Changes</button>
+      <button class="delete-btn" (click)="deleteUser()">Delete User</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,51 @@
+<div class="settings-container">
+    <h2>Settings</h2>
+    
+    <div class="settings-section">
+      <h3>General Settings</h3>
+      <div class="setting-item">
+        <label for="appName">Application Name:</label>
+        <input type="text" id="appName" [(ngModel)]="settings.appName" />
+      </div>
+      <div class="setting-item">
+        <label for="language">Default Language:</label>
+        <select id="language" [(ngModel)]="settings.language">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="settings-section">
+      <h3>Account Settings</h3>
+      <div class="setting-item">
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="settings.email" />
+      </div>
+      <div class="setting-item">
+        <label for="password">Change Password:</label>
+        <input type="password" id="password" [(ngModel)]="settings.password" />
+      </div>
+    </div>
+  
+    <div class="settings-section">
+      <h3>Application Preferences</h3>
+      <div class="setting-item">
+        <label for="theme">Theme:</label>
+        <select id="theme" [(ngModel)]="settings.theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" [(ngModel)]="settings.notifications" />
+          Enable Notifications
+        </label>
+      </div>
+    </div>
+  
+    <button class="save-btn" (click)="saveSettings()">Save Changes</button>
+  </div>
+  

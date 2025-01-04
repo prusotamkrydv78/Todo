@@ -1,0 +1,79 @@
+.task-detail-container {
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .task-detail {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .task-item label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .task-item input,
+  .task-item select,
+  .task-item textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .task-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  
+  .save-btn,
+  .delete-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .save-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+  }
+  
+  .save-btn:hover {
+    background-color: #43a047;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e53935;
+  }
+  

@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
-import { UserTaskDetailsComponent } from './user-task-details/user-task-details.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { UsersComponent } from './users/users.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [],
@@ -12,8 +17,14 @@ import { UserTaskDetailsComponent } from './user-task-details/user-task-details.
       {
         path: '',
         children: [
-          { path: '', component: AdminComponent },
-          { path: 'user-data', component: UserTaskDetailsComponent },
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: AdminComponent },
+          { path: 'user-data', component: TasksComponent },
+          { path: 'users', component: UsersComponent },
+          { path: 'settings', component: SettingsComponent },
+          { path: 'profile', component: ProfileComponent },
+          { path: 'task/:id', component: TaskDetailComponent },
+          { path: 'user/:id', component: UserDetailComponent },
           { path: '**', redirectTo: '' },
         ],
       },
