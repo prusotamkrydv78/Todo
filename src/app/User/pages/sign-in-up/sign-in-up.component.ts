@@ -214,7 +214,7 @@ export class SignInUpComponent {
           localStorage.getItem('loginUser')!
         );
 
-        this.router.navigate(['home']);
+        this.router.navigate(['user/home']);
         this.toastService.showToast('success', 'Login successful');
         this.clearLoginFields();
       } else {

@@ -23,7 +23,7 @@ export class HeaderComponent {
           label: 'Tasks',
           icon: 'pi pi-briefcase',
           command:()=>{
-            this.router.navigate(['/tasks']);
+            this.router.navigate(['/user/tasks']);
           }
         },
         {
