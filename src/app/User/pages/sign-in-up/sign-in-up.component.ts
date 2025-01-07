@@ -77,9 +77,13 @@ export class SignInUpComponent {
   async getAllUsers() {
     this.clearLoginFields();
     this.clearRegisterFields();
-    let users:any = await this.http.get('http://localhost:3000/users').toPromise();
-    let admins:any = await this.http.get('http://localhost:3000/admins').toPromise();
-    this.AllUsers = [...admins,...users];
+    let users: any = await this.http
+      .get('http://localhost:3000/users')
+      .toPromise();
+    let admins: any = await this.http
+      .get('http://localhost:3000/admins')
+      .toPromise();
+    this.AllUsers = [...admins, ...users];
   }
   async onRegister(event: Event) {
     event.preventDefault();
@@ -213,8 +217,11 @@ export class SignInUpComponent {
         this.loginUserService.loginUser = JSON.parse(
           localStorage.getItem('loginUser')!
         );
-
-        this.router.navigate(['user/home']);
+        if (this.loginUserService.loginUser.userType == 'admin') {
+          this.router.navigate(['admin']);
+        } else {
+          this.router.navigate(['user/home']);
+        }
         this.toastService.showToast('success', 'Login successful');
         this.clearLoginFields();
       } else {

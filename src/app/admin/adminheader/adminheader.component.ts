@@ -12,10 +12,13 @@ export class AdminheaderComponent {
   router = inject(Router);
   loginUserService = inject(LoginUserService);
   onLogout() {
-    this.loginUserService.loginUser = {
-      username: '',
-    };
-    localStorage.removeItem('loginUser');
-    this.router.navigate(['/login']);
+    let confirms = confirm('Are you sure, want to logout?');
+    if (confirms==true) {
+      this.loginUserService.loginUser = {
+        username: '',
+      };
+      localStorage.removeItem('loginUser');
+      this.router.navigate(['/login']);
+    }
   }
 }

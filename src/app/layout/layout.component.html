@@ -1,9 +1,9 @@
-@if (loginedUser.loginUser.userType == "admin") {
+<!-- @if (!(loginedUser.loginUser.userType == "admin")) {
 
-<app-adminheader />
-}@else {
+    <app-header />
+}@else { -->
+    <app-adminheader />
 
-<app-header />
-}
+<!-- } -->
 
 <router-outlet />

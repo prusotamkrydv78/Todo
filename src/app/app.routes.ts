@@ -4,12 +4,14 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeroComponent } from './User/pages/hero/hero.component';
 import { authGuard } from './User/Auth/auth.guard';
 import { TasksComponent } from './User/pages/tasks/tasks.component';
+import { adminGuard } from './admin/admin.guard';
 export const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
     data: { preload: true },
+    canActivate:[adminGuard]
   },
 
   {
